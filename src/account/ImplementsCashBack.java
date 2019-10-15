@@ -11,13 +11,17 @@ public  class ImplementsCashBack implements BankOperations{
 	@Override
 	public BigDecimal withDrawValue( BigDecimal value) {
 		return value.multiply(new BigDecimal(CASHBACK_PERCENT));
-		
-		
 	}
 	
 	@Override
 	public BigDecimal depositValue(BigDecimal value) {
 		return BigDecimal.ZERO;
+	}
+	
+	@Override
+	public String toString() {
+		
+		return "Cashback";
 	}
 
 		

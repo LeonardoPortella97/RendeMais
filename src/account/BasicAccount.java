@@ -5,12 +5,8 @@ import operations.BankOperations;
 
 public class BasicAccount extends BankAccount  {
 
-
-	
-
 	public BasicAccount(String holder, BankOperations ... operations) {
 		super(holder, operations);
-		
 	}
 
 	@Override
@@ -23,8 +19,8 @@ public class BasicAccount extends BankAccount  {
 	public void withdraw(BigDecimal value) throws InsufficientFunds {
 		super.withdraw(value);
 		
-		if (balance.compareTo(BigDecimal.ZERO)<0) {
-			throw new InsufficientFunds ("Insufficient Funds: "+ "Your balance: "+ balance + "Value of withdraw: "+ value);
+		if (getBalance().compareTo(BigDecimal.ZERO)<0) {
+			throw new InsufficientFunds ("Insufficient Funds: "+ "Your balance: "+getBalance() + "Value of withdraw: "+ value);
 		}
 	}
 }

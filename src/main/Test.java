@@ -30,16 +30,17 @@ public class Test {
 		juninhoEmergente.withdraw(new BigDecimal("100"));
 		juninhoEmergente.withdraw(new BigDecimal("200"));
 		juninhoEmergente.withdraw(new BigDecimal("300"));
-
+		
+		System.out.println("----------------------------------------");
 		tioPatinhas.showStatement();
 		tioPatinhas.showBalance();
-		System.out.println("---------------------------------");
+		System.out.println("----------------------------------------");
 		primoPobre.showStatement();
 		primoPobre.showBalance();
-		System.out.println("---------------------------------");
+		System.out.println("----------------------------------------");
 		juninhoEmergente.showStatement();
 		juninhoEmergente.showBalance();
-	
+		System.out.println("----------------------------------------");
 		
 
 	}

@@ -21,6 +21,7 @@ public class BankAccount {
 	}
 	
 	public void showBalance() {
+		System.out.println("----------------------------------------");
 		System.out.println(getHolder() + "  Balance:  " + getBalance());;
 		
 	}

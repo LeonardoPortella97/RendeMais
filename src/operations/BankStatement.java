@@ -13,7 +13,6 @@ public class BankStatement {
 		this.value = value;
 		this.message = message;
 	}
-
 	@Override
 	public String toString() {
 		return holder + ": " + message + " - R$ " + value;

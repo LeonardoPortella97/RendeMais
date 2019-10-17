@@ -4,14 +4,14 @@ import java.math.BigDecimal;
 
 import operations.BankOperations;
 
-public  class ImplementsCashBack implements BankOperations{
+public  class CashbackCalculate implements BankOperations{
 	
-	 public static final String CASHBACK_PERCENT = "0.01";	
-	 public static final ImplementsCashBack CASHBACK_INSTANCE = new ImplementsCashBack();	
+	 public static final BigDecimal CASHBACK_PERCENT = new BigDecimal("0.01") ;	
+	 public static final CashbackCalculate CASHBACK_INSTANCE = new CashbackCalculate();	
 
 	@Override
 	public BigDecimal withDrawValue( BigDecimal value) {
-		return value.multiply(new BigDecimal(CASHBACK_PERCENT));
+		return value.multiply(CASHBACK_PERCENT);
 	}
 	
 	@Override
@@ -25,11 +25,5 @@ public  class ImplementsCashBack implements BankOperations{
 		return "Cashback";
 	}
 
-		
 	
-	
-	
-	
-	
-
 }

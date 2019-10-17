@@ -1,6 +1,7 @@
 package account;
 import java.math.BigDecimal;
-import notifications.InsufficientFunds;
+
+import notifications.InsufficientFundsException;
 import operations.BankOperations;
 
 public class BasicAccount extends BankAccount  {
@@ -16,11 +17,11 @@ public class BasicAccount extends BankAccount  {
 	}
 
 	@Override
-	public void withdraw(BigDecimal value) throws InsufficientFunds {
+	public void withdraw(BigDecimal value) throws InsufficientFundsException {
 		super.withdraw(value);
 		
 		if (getBalance().compareTo(BigDecimal.ZERO)<0) {
-			throw new InsufficientFunds ("Insufficient Funds: "+ "Your balance: "+getBalance() + "Value of withdraw: "+ value);
+			throw new InsufficientFundsException ("Insufficient Funds: "+ "Your balance: "+getBalance() + "Value of withdraw: "+ value);
 		}
 	}
 }

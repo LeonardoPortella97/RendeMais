@@ -3,7 +3,8 @@ package account;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import notifications.InsufficientFunds;
+
+import notifications.InsufficientFundsException;
 import operations.BankOperations;
 import operations.BankStatement;
 
@@ -23,7 +24,7 @@ public class BankAccount {
 	public void showBalance() {
 		System.out.println("----------------------------------------");
 		System.out.println(getHolder() + "  Balance:  " + getBalance());;
-		
+		System.out.println("----------------------------------------");
 	}
 
 	public String getHolder() {
@@ -48,7 +49,7 @@ public class BankAccount {
 		return balance;
 	}
 
-	public void withdraw(BigDecimal value) throws InsufficientFunds {
+	public void withdraw(BigDecimal value) throws InsufficientFundsException {
 		if (value.compareTo(BigDecimal.ZERO) <= 0) {
 			throw new IllegalArgumentException("Illegal value, only positive values are accepted");
 		}

@@ -3,18 +3,17 @@ package main;
 import java.math.BigDecimal;
 import account.BankAccount;
 import account.BasicAccount;
+import account.CashbackCalculate;
 import account.GoldAccount;
-import account.ImplementsCashBack;
-import account.ImplementsIofTax;
-import notifications.InsufficientFunds;
-
+import account.TaxCalculate;
+import notifications.InsufficientFundsException;
 
 public class Test {
-	public static void main(String[] args) throws InsufficientFunds {
+	public static void main(String[] args) throws InsufficientFundsException {
 
-		BankAccount tioPatinhas = new GoldAccount("Tio Patinhas", ImplementsCashBack.CASHBACK_INSTANCE);
-		BankAccount primoPobre = new BasicAccount("Primo Pobre", ImplementsIofTax.TAXIOF_INSTANCE);
-		BankAccount juninhoEmergente = new GoldAccount("Juninho Emergente", ImplementsCashBack.CASHBACK_INSTANCE, ImplementsIofTax.TAXIOF_INSTANCE);
+		BankAccount tioPatinhas = new GoldAccount("Tio Patinhas",CashbackCalculate.CASHBACK_INSTANCE);
+		BankAccount primoPobre = new BasicAccount("Primo Pobre", TaxCalculate.TAXIOF_INSTANCE);
+		BankAccount juninhoEmergente = new GoldAccount("Juninho Emergente", CashbackCalculate.CASHBACK_INSTANCE, TaxCalculate.TAXIOF_INSTANCE);
 
 		tioPatinhas.deposit(new BigDecimal("1000"));
 		tioPatinhas.withdraw(new BigDecimal("100"));
@@ -32,15 +31,16 @@ public class Test {
 		juninhoEmergente.withdraw(new BigDecimal("300"));
 		
 		System.out.println("----------------------------------------");
+		
 		tioPatinhas.showStatement();
 		tioPatinhas.showBalance();
-		System.out.println("----------------------------------------");
+		
 		primoPobre.showStatement();
 		primoPobre.showBalance();
-		System.out.println("----------------------------------------");
+		
 		juninhoEmergente.showStatement();
 		juninhoEmergente.showBalance();
-		System.out.println("----------------------------------------");
+	
 		
 
 	}

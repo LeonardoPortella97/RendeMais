@@ -3,21 +3,21 @@ import java.math.BigDecimal;
 
 import operations.BankOperations;
 
-public class ImplementsIofTax implements BankOperations{
-public static final ImplementsIofTax TAXIOF_INSTANCE = new ImplementsIofTax();
+public class TaxCalculate implements BankOperations{
+public static final TaxCalculate TAXIOF_INSTANCE = new TaxCalculate();
 	
- public static final String IOF_TAX_PERCENT = "0.06";
+ public static final BigDecimal IOF_TAX_PERCENT = new BigDecimal("0.06");
 
 	@Override
 	public BigDecimal depositValue(BigDecimal value) {
-		BigDecimal multiply = value.multiply(new BigDecimal(IOF_TAX_PERCENT));
+		BigDecimal multiply = value.multiply(IOF_TAX_PERCENT);
 		
 		return multiply;
 	}
 
 	@Override
 	public BigDecimal withDrawValue(BigDecimal value) {
-		BigDecimal multiply = value.multiply(new BigDecimal(IOF_TAX_PERCENT));
+		BigDecimal multiply = value.multiply(IOF_TAX_PERCENT);
 
 		return multiply.negate();
 	}
